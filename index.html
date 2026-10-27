@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PeopleDesk | Employee Manager</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<aside class="sidebar">
+  <a class="brand" href="#"><span class="brand-mark">P</span><span>PeopleDesk<small>TEAM DIRECTORY</small></span></a>
+  <p class="nav-label">WORKSPACE</p><a class="nav active" href="#overview">▦ <span>Overview</span></a><a class="nav" href="#employees">♙ <span>Employees</span></a>
+  <div class="sidebar-note"><div class="note-icon">✦</div><strong>A little more organised</strong><p>Keep your team records easy to find, update and review.</p></div>
+  <div class="profile"><div class="avatar">HR</div><div><strong>HR Manager</strong><small>Demo workspace</small></div></div>
+</aside>
+<main class="main" id="overview">
+<header class="topbar"><div><p class="eyebrow">WORKSPACE / OVERVIEW</p><h1>Employee overview</h1><p class="subheading">A clear view of your people and monthly payroll.</p></div><button class="primary" id="addTop">＋ Add employee</button></header>
+<section class="stats">
+<article class="stat"><div class="stat-top"><span>Total employees</span><span class="stat-icon purple">♙</span></div><strong id="totalEmployees">0</strong><small>People in your directory</small></article>
+<article class="stat"><div class="stat-top"><span>Departments</span><span class="stat-icon blue">▦</span></div><strong id="totalDepartments">0</strong><small>Distinct departments</small></article>
+<article class="stat"><div class="stat-top"><span>Monthly payroll</span><span class="stat-icon green">₹</span></div><strong id="totalPayroll">₹0</strong><small>Combined monthly salaries</small></article>
+<article class="stat"><div class="stat-top"><span>Average salary</span><span class="stat-icon orange">↗</span></div><strong id="averageSalary">₹0</strong><small>Average per employee</small></article>
+</section>
+<section class="panel" id="employees">
+<div class="panel-heading"><div><h2>Team directory</h2><p>Employee records are sorted by employee ID.</p></div><button class="secondary" id="exportBtn">↓ Export CSV</button></div>
+<div class="toolbar"><label class="search">⌕ <input id="search" type="search" placeholder="Search name, department or ID…"></label><select id="departmentFilter"><option value="all">All departments</option></select></div>
+<div class="table-wrap"><table><thead><tr><th>EMPLOYEE</th><th>ID</th><th>DEPARTMENT</th><th>MONTHLY SALARY</th><th>ACTIONS</th></tr></thead><tbody id="employeeRows"></tbody></table>
+<div class="empty hidden" id="empty"><div class="empty-icon">♙</div><strong>No employees found</strong><p>Add an employee or change your search.</p></div></div>
+<div class="table-footer"><span id="resultCount">0 employees</span><span>Changes are saved in this browser</span></div>
+</section><footer>PeopleDesk · Beginner DSA project · Built with C, HTML, CSS and JavaScript</footer>
+</main>
+<dialog id="employeeDialog"><form id="employeeForm">
+<div class="modal-head"><div><p class="eyebrow">EMPLOYEE DETAILS</p><h2 id="modalTitle">Add an employee</h2></div><button type="button" class="close" id="closeDialog" aria-label="Close">×</button></div>
+<label>Full name<input id="name" required maxlength="59" placeholder="e.g. Asha Kumar"></label>
+<div class="form-row"><label>Employee ID<input id="eid" required type="number" min="1" step="1" placeholder="e.g. 1001"></label><label>Department<input id="department" required maxlength="39" placeholder="e.g. Accounts"></label></div>
+<label>Monthly salary (₹)<input id="salary" required type="number" min="0" step="0.01" placeholder="e.g. 35000"></label>
+<p class="form-error" id="formError"></p><div class="modal-actions"><button type="button" class="secondary" id="cancelDialog">Cancel</button><button class="primary" type="submit">Save employee</button></div>
+</form></dialog>
+<div class="toast" id="toast" role="status"></div><script src="app.js"></script>
+</body></html>
